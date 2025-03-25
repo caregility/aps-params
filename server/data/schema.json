@@ -1,0 +1,177 @@
+{
+  "classes": [
+    {
+      "id": "tvSwitching",
+      "label": "TV Switching",
+      "hasRecords": false,
+      "subClasses": [
+        {
+          "id": "manufacturer",
+          "label": "Manufacturer",
+          "fields": [
+            {
+              "key": "id",
+              "label": "ID",
+              "type": "text"
+            },
+            {
+              "key": "name",
+              "label": "Name",
+              "type": "text"
+            },
+            {
+              "key": "standardCommands",
+              "label": "Standard Commands",
+              "type": "table",
+              "prepopulateFrom": "command",
+              "columns": [
+                {
+                  "key": "command",
+                  "label": "Command",
+                  "type": "dropdown",
+                  "options": [
+                    "POWER_STATUS",
+                    "POWER_ON",
+                    "POWER_OFF",
+                    "TOGGLE_MUTE",
+                    "MUTE_ON",
+                    "MUTE_OFF",
+                    "SELECT_INPUT",
+                    "TOGGLE_POWER",
+                    "RESET",
+                    "REBOOT",
+                    "FIRMWARE_VERSION"
+                  ]
+                },
+                {
+                  "key": "code",
+                  "label": "Code",
+                  "type": "text",
+                  "hideIf": {
+                    "field": "command",
+                    "equals": "SELECT_INPUT"
+                  }
+                },
+                {
+                  "key": "responseTimeout",
+                  "label": "Response Timeout",
+                  "type": "number"
+                },
+                {
+                  "key": "continueTimeout",
+                  "label": "Continue Timeout",
+                  "type": "number"
+                },
+                {
+                  "key": "inputMappings",
+                  "label": "Input Mappings",
+                  "type": "table",
+                  "showIf": {
+                    "field": "command",
+                    "equals": "SELECT_INPUT"
+                  },
+                  "columns": [
+                    {
+                      "key": "input",
+                      "label": "Input",
+                      "type": "text"
+                    },
+                    {
+                      "key": "code",
+                      "label": "Code",
+                      "type": "text"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "subClasses": [
+            {
+              "id": "model",
+              "label": "Model",
+              "fields": [
+                {
+                  "key": "id",
+                  "label": "Model ID",
+                  "type": "text"
+                },
+                {
+                  "key": "name",
+                  "label": "Model Name",
+                  "type": "text"
+                },
+                {
+                  "key": "commands",
+                  "label": "Commands",
+                  "type": "table",
+                  "prepopulateFrom": "command",
+                  "columns": [
+                    {
+                      "key": "command",
+                      "label": "Command",
+                      "type": "dropdown",
+                      "options": [
+                        "POWER_STATUS",
+                        "POWER_ON",
+                        "POWER_OFF",
+                        "TOGGLE_MUTE",
+                        "MUTE_ON",
+                        "MUTE_OFF",
+                        "SELECT_INPUT",
+                        "TOGGLE_POWER",
+                        "RESET",
+                        "REBOOT",
+                        "FIRMWARE_VERSION"
+                      ]
+                    },
+                    {
+                      "key": "code",
+                      "label": "Code",
+                      "type": "text",
+                      "hideIf": {
+                        "field": "command",
+                        "equals": "SELECT_INPUT"
+                      }
+                    },
+                    {
+                      "key": "responseTimeout",
+                      "label": "Response Timeout",
+                      "type": "number"
+                    },
+                    {
+                      "key": "continueTimeout",
+                      "label": "Continue Timeout",
+                      "type": "number"
+                    },
+                    {
+                      "key": "inputMappings",
+                      "label": "Input Mappings",
+                      "type": "table",
+                      "showIf": {
+                        "field": "command",
+                        "equals": "SELECT_INPUT"
+                      },
+                      "columns": [
+                        {
+                          "key": "input",
+                          "label": "Input",
+                          "type": "text"
+                        },
+                        {
+                          "key": "code",
+                          "label": "Code",
+                          "type": "text"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

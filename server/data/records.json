@@ -1,0 +1,412 @@
+{
+  "classes": [
+    {
+      "id": "tvSwitching",
+      "subClasses": [
+        {
+          "id": "manufacturer",
+          "instances": [
+            {
+              "id": "samsung",
+              "name": "Samsung",
+              "standardCommands": [
+                {
+                  "command": "POWER_STATUS",
+                  "code": "0822F0000000AA",
+                  "responseTimeout": 4500,
+                  "continueTimeout": 3000
+                },
+                {
+                  "command": "POWER_ON",
+                  "code": "082200000002BB",
+                  "responseTimeout": 5000,
+                  "continueTimeout": 3000
+                },
+                {
+                  "command": "POWER_OFF",
+                  "code": "082200000001CC",
+                  "responseTimeout": 9000,
+                  "continueTimeout": 3000
+                },
+                {
+                  "command": "TOGGLE_MUTE",
+                  "code": "082202000000DD",
+                  "responseTimeout": 2000,
+                  "continueTimeout": 3000
+                },
+                {
+                  "command": "SELECT_INPUT",
+                  "code": "",
+                  "responseTimeout": 3000,
+                  "continueTimeout": 3000,
+                  "inputMappings": [
+                    {
+                      "input": "tv",
+                      "code": "08220A000000EE"
+                    },
+                    {
+                      "input": "av1",
+                      "code": "08220A000100EF"
+                    },
+                    {
+                      "input": "av2",
+                      "code": "08220A000101F0"
+                    },
+                    {
+                      "input": "av3",
+                      "code": "08220A000102F1"
+                    },
+                    {
+                      "input": "svid1",
+                      "code": "08220A000200F2"
+                    },
+                    {
+                      "input": "svid2",
+                      "code": "08220A000201F3"
+                    },
+                    {
+                      "input": "svid3",
+                      "code": "08220A000202F4"
+                    },
+                    {
+                      "input": "component1",
+                      "code": "08220A000300F5"
+                    },
+                    {
+                      "input": "component2",
+                      "code": "08220A000301F6"
+                    },
+                    {
+                      "input": "component3",
+                      "code": "08220A000302F7"
+                    },
+                    {
+                      "input": "pcmode1",
+                      "code": "08220A000400F8"
+                    },
+                    {
+                      "input": "pcmode2",
+                      "code": "08220A000401F9"
+                    },
+                    {
+                      "input": "pcmode3",
+                      "code": "08220A000402FA"
+                    },
+                    {
+                      "input": "dvi1",
+                      "code": "08220A000600FB"
+                    },
+                    {
+                      "input": "dvi2",
+                      "code": "08220A000601FC"
+                    },
+                    {
+                      "input": "dvi3",
+                      "code": "08220A000602FD"
+                    },
+                    {
+                      "input": "hdmi1",
+                      "code": "08220A000500EE"
+                    },
+                    {
+                      "input": "hdmi2",
+                      "code": "08220A000501EE"
+                    },
+                    {
+                      "input": "hdmi3",
+                      "code": "08220A000502EE"
+                    },
+                    {
+                      "input": "hdmi4",
+                      "code": "08220A000503EE"
+                    }
+                  ]
+                }
+              ],
+              "model": [
+                {
+                  "id": "SAM_MODEL_001",
+                  "name": "Samsung Model One",
+                  "commands": [
+                    {
+                      "command": "POWER_STATUS",
+                      "code": "0822F0000000AA",
+                      "responseTimeout": 4500,
+                      "continueTimeout": 3000
+                    },
+                    {
+                      "command": "SELECT_INPUT",
+                      "code": "",
+                      "responseTimeout": 3000,
+                      "continueTimeout": 3000,
+                      "inputMappings": [
+                        {
+                          "input": "tv",
+                          "code": "08220A000000EE"
+                        },
+                        {
+                          "input": "av1",
+                          "code": "08220A000100EF"
+                        },
+                        {
+                          "input": "av2",
+                          "code": "08220A000101F0"
+                        },
+                        {
+                          "input": "av3",
+                          "code": "08220A000102F1"
+                        },
+                        {
+                          "input": "svid1",
+                          "code": "08220A000200F2"
+                        },
+                        {
+                          "input": "svid2",
+                          "code": "08220A000201F3"
+                        },
+                        {
+                          "input": "svid3",
+                          "code": "08220A000202F4"
+                        },
+                        {
+                          "input": "component1",
+                          "code": "08220A000300F5"
+                        },
+                        {
+                          "input": "component2",
+                          "code": "08220A000301F6"
+                        },
+                        {
+                          "input": "component3",
+                          "code": "08220A000302F7"
+                        },
+                        {
+                          "input": "pcmode1",
+                          "code": "08220A000400F8"
+                        },
+                        {
+                          "input": "pcmode2",
+                          "code": "08220A000401F9"
+                        },
+                        {
+                          "input": "pcmode3",
+                          "code": "08220A000402FA"
+                        },
+                        {
+                          "input": "dvi1",
+                          "code": "08220A000600FB"
+                        },
+                        {
+                          "input": "dvi2",
+                          "code": "08220A000601FC"
+                        },
+                        {
+                          "input": "dvi3",
+                          "code": "08220A000602FD"
+                        },
+                        {
+                          "input": "hdmi1",
+                          "code": "08220A000500EE"
+                        },
+                        {
+                          "input": "hdmi2",
+                          "code": "08220A000501EE"
+                        },
+                        {
+                          "input": "hdmi3",
+                          "code": "08220A000502EE"
+                        },
+                        {
+                          "input": "hdmi4",
+                          "code": "08220A000503EE"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "lg",
+              "name": "LG",
+              "standardCommands": [
+                {
+                  "command": "POWER_STATUS",
+                  "code": "ka 00 FF",
+                  "responseTimeout": 3000,
+                  "continueTimeout": 4500
+                },
+                {
+                  "command": "POWER_ON",
+                  "code": "ka 01 01",
+                  "responseTimeout": 3000,
+                  "continueTimeout": 5000
+                },
+                {
+                  "command": "POWER_OFF",
+                  "code": "ka 01 00",
+                  "responseTimeout": 3000,
+                  "continueTimeout": 5000
+                },
+                {
+                  "command": "MUTE_ON",
+                  "code": "ke 01 00",
+                  "responseTimeout": 3000,
+                  "continueTimeout": 2000
+                },
+                {
+                  "command": "MUTE_OFF",
+                  "code": "ke 01 01",
+                  "responseTimeout": 3000,
+                  "continueTimeout": 2000
+                },
+                {
+                  "command": "SELECT_INPUT",
+                  "code": "",
+                  "responseTimeout": 3000,
+                  "continueTimeout": 3000,
+                  "inputMappings": [
+                    {
+                      "input": "dtv",
+                      "code": "xb 01 00"
+                    },
+                    {
+                      "input": "cadtv",
+                      "code": "xb 01 01"
+                    },
+                    {
+                      "input": "satellitedtv",
+                      "code": "xb 01 02"
+                    },
+                    {
+                      "input": "atv",
+                      "code": "xb 01 10"
+                    },
+                    {
+                      "input": "catv",
+                      "code": "xb 01 11"
+                    },
+                    {
+                      "input": "av1",
+                      "code": "xb 01 20"
+                    },
+                    {
+                      "input": "av2",
+                      "code": "xb 01 21"
+                    },
+                    {
+                      "input": "component1",
+                      "code": "xb 01 40"
+                    },
+                    {
+                      "input": "component2",
+                      "code": "xb 01 41"
+                    },
+                    {
+                      "input": "rgb",
+                      "code": "xb 01 60"
+                    },
+                    {
+                      "input": "hdmi1",
+                      "code": "xb 01 90"
+                    },
+                    {
+                      "input": "hdmi2",
+                      "code": "xb 01 91"
+                    },
+                    {
+                      "input": "hdmi3",
+                      "code": "xb 01 92"
+                    },
+                    {
+                      "input": "hdmi4",
+                      "code": "xb 01 93"
+                    }
+                  ]
+                }
+              ],
+              "model": [
+                {
+                  "id": "LG_MODEL_001",
+                  "name": "LG Model One",
+                  "commands": [
+                    {
+                      "command": "POWER_STATUS",
+                      "code": "ka 00 FF",
+                      "responseTimeout": 3000,
+                      "continueTimeout": 4500
+                    },
+                    {
+                      "command": "SELECT_INPUT",
+                      "code": "",
+                      "responseTimeout": 3000,
+                      "continueTimeout": 3000,
+                      "inputMappings": [
+                        {
+                          "input": "dtv",
+                          "code": "xb 01 00"
+                        },
+                        {
+                          "input": "cadtv",
+                          "code": "xb 01 01"
+                        },
+                        {
+                          "input": "satellitedtv",
+                          "code": "xb 01 02"
+                        },
+                        {
+                          "input": "atv",
+                          "code": "xb 01 10"
+                        },
+                        {
+                          "input": "catv",
+                          "code": "xb 01 11"
+                        },
+                        {
+                          "input": "av1",
+                          "code": "xb 01 20"
+                        },
+                        {
+                          "input": "av2",
+                          "code": "xb 01 21"
+                        },
+                        {
+                          "input": "component1",
+                          "code": "xb 01 40"
+                        },
+                        {
+                          "input": "component2",
+                          "code": "xb 01 41"
+                        },
+                        {
+                          "input": "rgb",
+                          "code": "xb 01 60"
+                        },
+                        {
+                          "input": "hdmi1",
+                          "code": "xb 01 90"
+                        },
+                        {
+                          "input": "hdmi2",
+                          "code": "xb 01 91"
+                        },
+                        {
+                          "input": "hdmi3",
+                          "code": "xb 01 92"
+                        },
+                        {
+                          "input": "hdmi4",
+                          "code": "xb 01 93"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

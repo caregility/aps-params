@@ -1,154 +1,32 @@
 "use client";
 
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
 import { DataEditor } from "./components/DataEditor";
 import { SchemaEditor } from "./components/SchemaEditor";
-
 import { AllSchemas } from "./types";
 
-const defaultSchemaJSON: AllSchemas = {
-  classes: [
-    {
-      id: "tvSwitching",
-      label: "TV Switching",
-      hasRecords: false,
-      subClasses: [
-        {
-          id: "manufacturer",
-          label: "Manufacturer",
-          fields: [
-            { key: "id", label: "ID", type: "text" },
-            { key: "name", label: "Name", type: "text" },
-            {
-              "key": "standardCommands",
-              "label": "Standard Commands",
-              "type": "table",
-              "prepopulateFrom": "command",
-              "columns": [
-                {
-                  "key": "command",
-                  "label": "Command",
-                  "type": "dropdown",
-                  "options": [
-                    "POWER_STATUS",
-                    "POWER_ON",
-                    "POWER_OFF",
-                    "TOGGLE_MUTE",
-                    "MUTE_ON",
-                    "MUTE_OFF",
-                    "SELECT_INPUT",
-                    "TOGGLE_POWER",
-                    "RESET",
-                    "REBOOT",
-                    "FIRMWARE_VERSION"
-                  ]
-                },
-                {
-                  "key": "code",
-                  "label": "Code",
-                  "type": "text",
-                  "hideIf": { "field": "command", "equals": "SELECT_INPUT" }
-                },
-                {
-                  "key": "responseTimeout",
-                  "label": "Response Timeout",
-                  "type": "number"
-                },
-                {
-                  "key": "continueTimeout",
-                  "label": "Continue Timeout",
-                  "type": "number"
-                },
-                {
-                  "key": "inputMappings",
-                  "label": "Input Mappings",
-                  "type": "table",
-                  "showIf": { "field": "command", "equals": "SELECT_INPUT" },
-                  "columns": [
-                    { "key": "input", "label": "Input", "type": "text" },
-                    { "key": "code", "label": "Code", "type": "text" }
-                  ]
-                }
-              ]
-            }
-          ],
-          subClasses: [
-            {
-              id: "model",
-              label: "Model",
-              fields: [
-                { key: "modelId", label: "Model ID", type: "text" },
-                { key: "modelName", label: "Model Name", type: "text" },
-                {
-                  key: "commands",
-                  label: "Commands",
-                  type: "table",
-                  prepopulateFrom: "command",
-                  columns: [
-                    {
-                      key: "command",
-                      label: "Command",
-                      type: "dropdown",
-                      options: [
-                        "POWER_STATUS",
-                        "POWER_ON",
-                        "POWER_OFF",
-                        "TOGGLE_MUTE",
-                        "MUTE_ON",
-                        "MUTE_OFF",
-                        "SELECT_INPUT",
-                        "TOGGLE_POWER",
-                        "RESET",
-                        "REBOOT",
-                        "FIRMWARE_VERSION"
-                      ]
-                    },
-                    {
-                      key: "code",
-                      label: "Code",
-                      type: "text",
-                      hideIf: { "field": "command", "equals": "SELECT_INPUT" }
-                    },
-                    {
-                      key: "responseTimeout",
-                      label: "Response Timeout",
-                      type: "number"
-                    },
-                    {
-                      key: "continueTimeout",
-                      label: "Continue Timeout",
-                      type: "number"
-                    },
-                    {
-                      // Same "inputMappings" sub-table for the sub-commands
-                      key: "inputMappings",
-                      label: "Input Mappings",
-                      showIf: { "field": "command", "equals": "SELECT_INPUT" },
-                      type: "table",
-                      columns: [
-                        { key: "input", label: "Input", type: "text" },
-                        { key: "code", label: "Code", type: "text" }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  ]
-};
-
-/* ------------------------------------------------------------------
-   7. MAIN PAGE WITH TABS
-   ------------------------------------------------------------------ */
 export default function Home() {
   const [activeTab, setActiveTab] = useState<"schemaEditor" | "dataEditor">("schemaEditor");
-  const [schemaJSON, setSchemaJSON] = useState<AllSchemas>(defaultSchemaJSON);
-  console.log("Current Schema JSON:", schemaJSON);
+  const [schemaJSON, setSchemaJSON] = useState<AllSchemas | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  // Load the schema JSON from the backend once on mount
+  useEffect(() => {
+    fetch("http://localhost:5000/api/schema")
+      .then((res) => res.json())
+      .then((data) => {
+        setSchemaJSON(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error loading schema:", error);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading || !schemaJSON) {
+    return <div>Loading schema...</div>;
+  }
 
   return (
     <div className="min-h-screen p-8 bg-gray-100">

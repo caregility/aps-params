@@ -1,43 +1,57 @@
-import React from "react";
+"use client";
 
+import React, { useState } from "react";
 import { AllSchemas } from "../types";
-
 import { JSONEditorWrapper } from "./JSONEditorWrapper";
-/* ------------------------------------------------------------------
-   4. SCHEMA EDITOR (Using JSONEditor)
-   ------------------------------------------------------------------ */
 
-export function SchemaEditor({
-    schemaJSON,
-    onSchemaChange
-}: {
+type SchemaEditorProps = {
     schemaJSON: AllSchemas;
     onSchemaChange: (newSchema: AllSchemas) => void;
-}) {
+};
 
-    // We can store the JSONEditor’s value in local state if desired,
-    // or just rely on onChange events.
+export function SchemaEditor({ schemaJSON, onSchemaChange }: SchemaEditorProps) {
+    const [saveMessage, setSaveMessage] = useState<string>("");
+
     const handleChange = (newValue: any) => {
         onSchemaChange(newValue as AllSchemas);
     };
+
+    const handleSave = () => {
+        fetch("http://localhost:5000/api/schema", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(schemaJSON, null, 2),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log("Schema save response:", data);
+                setSaveMessage("Schema saved successfully!");
+                setTimeout(() => setSaveMessage(""), 3000);
+            })
+            .catch((error) => console.error("Error saving schema:", error));
+    };
+
+    if (!schemaJSON) {
+        return <div>Loading schema...</div>;
+    }
 
     return (
         <div>
             <h2 className="text-xl font-bold mb-4 text-black">Schema Editor</h2>
             <p className="mb-2 text-sm text-black">
-                Use the interface below to edit the schema for the supported APS params.  This will serve as the basis for the records available in the data editor.
+                Use the interface below to edit the schema for the supported APS params.
             </p>
-
-            {/* JSONEditorComponent */}
             <div style={{ height: 600, border: "1px solid #ccc" }}>
                 <JSONEditorWrapper
                     value={schemaJSON}
                     onChange={(newValue) => handleChange(newValue)}
-                    options={{
-                        mode: "tree"
-                    }}
+                    options={{ mode: "tree" }}
                 />
             </div>
+            <button onClick={handleSave} className="mt-4 px-4 py-2 bg-blue-600 text-white rounded">
+                Save Schema
+            </button>
+            {saveMessage && <div className="mt-2 text-green-600">{saveMessage}</div>}
         </div>
     );
 }
