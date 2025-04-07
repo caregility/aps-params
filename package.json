@@ -4,12 +4,10 @@
   "private": true,
   "scripts": {
     "dev:next": "next dev --turbopack",
-    "dev:server": "node server/server.js",
-    "dev": "concurrently \"npm run dev:next\" \"npm run dev:server\"",
+    "dev": "npm run dev:next",
     "build": "next build",
     "start:next": "next start",
-    "start:server": "node server/server.js",
-    "start": "concurrently \"npm run start:next\" \"npm run start:server\"",
+    "start": "npm run start:next",
     "lint": "next lint"
   },
   "dependencies": {

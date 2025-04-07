@@ -17,18 +17,7 @@ export function SchemaEditor({ schemaJSON, onSchemaChange }: SchemaEditorProps) 
     };
 
     const handleSave = () => {
-        fetch("http://localhost:5000/api/schema", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(schemaJSON, null, 2),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log("Schema save response:", data);
-                setSaveMessage("Schema saved successfully!");
-                setTimeout(() => setSaveMessage(""), 3000);
-            })
-            .catch((error) => console.error("Error saving schema:", error));
+
     };
 
     if (!schemaJSON) {
