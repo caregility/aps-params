@@ -7,6 +7,95 @@
           "id": "manufacturer",
           "instances": [
             {
+              "id": "pdi",
+              "name": "PDi",
+              "standardCommands": [
+                {
+                  "command": "POWER_STATUS",
+                  "code": "10021200121003",
+                  "responseTimeout": 3000,
+                  "continueTimeout": 3000
+                },
+                {
+                  "command": "POWER_ON",
+                  "code": "1002010100021003",
+                  "responseTimeout": 3000,
+                  "continueTimeout": 3000
+                },
+                {
+                  "command": "POWER_OFF",
+                  "code": "1002010000011003",
+                  "responseTimeout": 3000,
+                  "continueTimeout": 3000
+                },
+                {
+                  "command": "TOGGLE_MUTE",
+                  "code": "1002040300071003",
+                  "responseTimeout": 3000,
+                  "continueTimeout": 2000
+                },
+                {
+                  "command": "SELECT_INPUT",
+                  "code": "",
+                  "responseTimeout": 3000,
+                  "continueTimeout": 3000,
+                  "inputMappings": [
+                    {
+                      "input": "hdmi1",
+                      "code": "10021D000900261003"
+                    },
+                    {
+                      "input": "hdmi2",
+                      "code": "10021D000D002A1003"
+                    },
+                    {
+                      "input": "hdmi3",
+                      "code": "10021D001600331003"
+                    },
+                    {
+                      "input": "hdmi4",
+                      "code": "10021D001700341003"
+                    },
+                    {
+                      "input": "component1",
+                      "code": "10021D000700231003"
+                    },
+                    {
+                      "input": "av1",
+                      "code": "10021D000400201003"
+                    },
+                    {
+                      "input": "pcmode",
+                      "code": "10021D000A00271003"
+                    },
+                    {
+                      "input": "dvi",
+                      "code": "10021D000B00281003"
+                    }
+                  ]
+                },
+                {
+                  "command": "REMOTE_CONTROL_ON",
+                  "code": "10020A02FF01010C1003",
+                  "responseTimeout": 3000,
+                  "continueTimeout": 2000
+                },
+                {
+                  "command": "REMOTE_CONTROL_OFF",
+                  "code": "10020A02FF02010D1003",
+                  "responseTimeout": 3000,
+                  "continueTimeout": 2000
+                }
+              ],
+              "model": [
+                {
+                  "id": "PDI_MODEL_GENERIC",
+                  "name": "Generic PDi TV",
+                  "commands": []
+                }
+              ]
+            },
+            {
               "id": "samsung",
               "name": "Samsung",
               "standardCommands": [
@@ -323,6 +412,18 @@
                       "code": "xb 01 93"
                     }
                   ]
+                },
+                {
+                  "command": "REMOTE_CONTROL_OFF",
+                  "code": "km 01 00",
+                  "responseTimeout": 3000,
+                  "continueTimeout": 2000
+                },
+                {
+                  "command": "REMOTE_CONTROL_ON",
+                  "code": "km 01 01",
+                  "responseTimeout": 3000,
+                  "continueTimeout": 2000
                 }
               ],
               "model": [
